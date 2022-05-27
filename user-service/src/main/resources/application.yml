@@ -1,8 +1,2 @@
 server:
   port: 8500
-spring:
-  application:
-    name: userservice
-  cloud:
-    nacos:
-      server-addr: localhost:8848
