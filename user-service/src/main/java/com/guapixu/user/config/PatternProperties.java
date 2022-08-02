@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
  * @author lizx
  */
 @Data
-@Component
+@Component("patternProperties")
 @ConfigurationProperties(prefix = "pattern")
 public class PatternProperties {
     private String dateFormat;
