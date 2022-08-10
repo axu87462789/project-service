@@ -8,11 +8,13 @@
   <artifactId>project</artifactId>
   <version>1.0-SNAPSHOT</version>
   <modules>
-    <module>user-service</module>
+    <module>guapixu-project-commons</module>
+    <module>guapixu-project-user</module>
+    <module>guapixu-project-mail</module>
   </modules>
   <packaging>pom</packaging>
 
-  <name>project Maven Webapp</name>
+  <name>project</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
