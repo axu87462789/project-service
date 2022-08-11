@@ -3,16 +3,21 @@ package com.guapixu.commons.pojo.vo;
 import com.guapixu.commons.constant.StatusCode;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * @author lizx
  */
 @Data
-public class ResultVO<T> {
+public class ResultVO<T> implements Serializable {
     private Integer code;
 
     private String msg;
 
     private T data;
+
+    public ResultVO(){
+    }
 
     public ResultVO(Integer code, String msg){
         this.code = code;

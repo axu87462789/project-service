@@ -5,6 +5,8 @@ import cn.hutool.core.util.StrUtil;
 import com.guapixu.user.config.PatternProperties;
 import com.guapixu.user.pojo.po.UserPO;
 import com.guapixu.user.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -17,9 +19,7 @@ import java.util.PriorityQueue;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-
-    @Resource(name = "patternProperties")
-    private PatternProperties patternProperties;
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Resource(name = "userService")
     private UserService userService;

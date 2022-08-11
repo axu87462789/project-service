@@ -1,2 +1,8 @@
 server:
   port: 8500
+feign:
+  httpclient:
+    enabled: true #支持HttpClient的开关
+    max-connections: 200 # 最大连接数
+    max-connections-per-route: 50 # 单个路径最大连接数
+    connection-timeout: 10000 # 请求时长

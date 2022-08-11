@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.guapixu.user.dao.UserDao;
 import com.guapixu.user.pojo.po.UserPO;
 import com.guapixu.user.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,6 +17,8 @@ import java.util.List;
  */
 @Service("userService")
 public class UserServiceImpl extends ServiceImpl<UserDao, UserPO> implements UserService {
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
     @Override
     public boolean saveUser(UserPO user) {
         user.setUuid(IdUtil.fastSimpleUUID());
