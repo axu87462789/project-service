@@ -12,6 +12,11 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "pattern")
 public class PatternProperties {
     /**
+     * redisKey前缀 项目+业务
+     */
+    private String redisKeyPrefix;
+
+    /**
      * 统一时间格式
      */
     private String dateFormat;

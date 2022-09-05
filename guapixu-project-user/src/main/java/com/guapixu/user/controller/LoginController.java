@@ -1,7 +1,8 @@
 package com.guapixu.user.controller;
 
+import com.guapixu.commons.constant.ResultCode;
 import com.guapixu.commons.pojo.vo.ResultVO;
-import com.guapixu.user.pojo.vo.MailCodeVO;
+import com.guapixu.user.pojo.vo.LoginVO;
 import com.guapixu.user.service.LoginService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,8 +26,15 @@ public class LoginController {
     private LoginService loginService;
 
     @PostMapping("/sendMailCode")
-    public ResultVO<?> sendMailCode(@Validated @RequestBody MailCodeVO mailCodeVO){
-        logger.info("传入参数==>{}", mailCodeVO);
-        return loginService.sendMailCode(mailCodeVO);
+    public ResultVO<?> sendMailCode(@Validated(LoginVO.Mail.class) @RequestBody LoginVO loginVO){
+        logger.info("发送邮箱验证码==>{}", loginVO);
+        loginService.sendMailCode(loginVO);
+        return new ResultVO<>(ResultCode.SUCCESS);
+    }
+
+    @PostMapping("/loginMailCode")
+    public ResultVO<?> loginMailCode(@Validated(LoginVO.MailCode.class) @RequestBody LoginVO loginVO){
+        logger.info("邮箱验证码登入==>{}", loginVO);
+        return loginService.loginMailCode(loginVO);
     }
 }

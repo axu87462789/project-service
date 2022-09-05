@@ -20,7 +20,7 @@ import javax.annotation.Resource;
 @RestController
 @RequestMapping("/mail")
 public class MailController {
-    private final Logger logger = LoggerFactory.getLogger(MailController.class);
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Resource(name = "mailService")
     private MailService mailService;

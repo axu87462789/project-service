@@ -11,6 +11,7 @@
     <module>guapixu-project-commons</module>
     <module>guapixu-project-user</module>
     <module>guapixu-project-mail</module>
+    <module>guapixu-project-gateway</module>
   </modules>
   <packaging>pom</packaging>
 
@@ -47,6 +48,22 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-amqp</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.24</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+    </dependency>
+  </dependencies>
 
   <build>
     <finalName>project</finalName>

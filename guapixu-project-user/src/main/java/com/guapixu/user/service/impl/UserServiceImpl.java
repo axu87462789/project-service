@@ -1,6 +1,8 @@
 package com.guapixu.user.service.impl;
 
 import cn.hutool.core.util.IdUtil;
+import cn.hutool.core.util.RandomUtil;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.guapixu.user.dao.UserDao;
 import com.guapixu.user.pojo.po.UserPO;
@@ -20,9 +22,19 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserPO> implements Use
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override
-    public boolean saveUser(UserPO user) {
+    public UserPO saveUserWithEmail(String email) {
+        UserPO user = new UserPO();
         user.setUuid(IdUtil.fastSimpleUUID());
-        return this.save(user);
+        user.setEmail(email);
+        user.setNickName(RandomUtil.randomString(8));
+        Integer count;
+        // 生成不重复随机用户名
+        do {
+            user.setUsername(RandomUtil.randomString(10));
+            count = lambdaQuery().eq(UserPO::getUsername, user.getUsername()).count();
+        }while (count>0);
+        this.save(user);
+        return user;
     }
 
     @Override

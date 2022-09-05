@@ -12,6 +12,10 @@ import java.io.Serializable;
 @TableName("user")
 public class UserPO implements Serializable {
     private String uuid;
-    private String name;
+    private String username;
+    private String password;
+    private String nickName;
     private int age;
+    private String mobileNumber;
+    private String email;
 }

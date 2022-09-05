@@ -11,11 +11,11 @@ import java.util.List;
  */
 public interface UserService extends IService<UserPO> {
     /**
-     * 新增用户信息
-     * @param user 用户信息
-     * @return 新增结果
+     * 通过邮箱新增用户信息
+     * @param email 邮箱
+     * @return 用户信息
      */
-    boolean saveUser(UserPO user);
+    UserPO saveUserWithEmail(String email);
 
     /**
      * 删除用户信息
